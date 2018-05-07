@@ -1,0 +1,146 @@
+<div class="main-content">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-brand d-flex flex-fill">
+    <a href="https://play.google.com/store/apps/details?id=com.wacans" target="_blank">  <img class="img-responsive" height="50px" width="60px;" src="http://wacans.com/images/Asset.png"></a>
+    </span>
+    <div class="navbar-collapse collapse" id="navbar">
+      <h4 class="navbar-nav justify-content-center d-flex flex-fill">
+        <b>Registration For Butter Milk Competition - Wacans</b>
+      </h4>
+    </div>
+    <div class="d-flex flex-fill"></div>
+  </nav>
+  <div class="clearfix">&nbsp;</div>
+  <div class="container-fluid">
+
+    <div class="col-md-9 ml-auto">
+
+      <form [formGroup]="adddetails" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" formControlName="name" id="name">
+            <div *ngIf="!adddetails.controls['name'].valid && (adddetails.controls['name']?.dirty ||adddetails.controls['name']?.touched)"
+              class="message alert-danger">
+              <div [hidden]="!adddetails.controls['name'].hasError('required')">
+                Name is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <label for="mobile">Mobile</label>
+            <input type="text" class="form-control" formControlName="mobile" id="mobile">
+            <div *ngIf="!adddetails.controls['mobile'].valid && (adddetails.controls['mobile']?.dirty ||adddetails.controls['mobile']?.touched)"
+              class="message alert-danger">
+              <div [hidden]="!adddetails.controls['mobile'].hasError('required')">
+                Mobile Number is required
+              </div>
+              <div [hidden]="!adddetails.controls['mobile'].hasError('pattern')">
+                Enter valid number
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="clearfix">&nbsp;</div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="ava">Area name</label>
+            <select class="form-control" formControlName="area" id="area">
+              <option [value]="op" *ngFor="let op of areas">{{op}}</option>
+            </select>
+            <div *ngIf="!adddetails.controls['area'].valid" class="message alert-danger">
+              <div [hidden]="!adddetails.controls['area'].hasError('required')">
+                Select any one
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <label for="ava">Avaliable On</label>
+            <select class="form-control" formControlName="available_on" id="ava">
+              <option value="18-05-2018">May 18</option>
+              <option value="19-05-2018">May 19</option>
+            </select>
+            <div *ngIf="!adddetails.controls['available_on'].valid" class="message alert-danger">
+              <div [hidden]="!adddetails.controls['available_on'].hasError('required')">
+                Select any one
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix">&nbsp;&nbsp;&nbsp;</div>
+        <div class="col-md-5 mx-auto">
+          <button type="submit" [disabled]="!adddetails.valid || submitform == 1" class="btn btn-success btn-sm">Submit</button>
+        </div>
+
+      </form>
+
+    </div>
+    <div class="clearfix">&nbsp;&nbsp;</div>
+
+
+    <div class="col-md-9 ml-auto">
+
+      <div class="row mar">
+
+        <div class="col-sm-3">
+
+          <img class="img-responsive" height="60x" width="70px;" src="http://wacans.com/images/2.png">
+
+          <p class="pad">1500 &#8377;</p>
+
+        </div>
+        <div class="col-sm-3">
+
+          <img class="img-responsive" height="60px" width="70px;" src="http://wacans.com/images/8-512.png">
+
+          <p class="pad">3000 &#8377;</p>
+
+        </div>
+        <div class="col-sm-3">
+
+          <img class="img-responsive" height="60px" width="70px;" src="http://wacans.com/images/3.png">
+
+          <p class="pad">500 &#8377;</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <h4 class="text-center">
+      <b>Rules</b>
+    </h4>
+
+    <div class="col-md-9 ml-auto">
+      <div class="row" style="font-size : 13px ">
+      <ul>
+        <li>Only pre registered participants are allowed. Last date for registration is 29th April 2018.</li>
+        <li>1st prize 3000 &#8377;, 2nd - 1500 &#8377;, 3rd - 500 &#8377;. Timing 8.30pm to 11.30pm,who drink more no.of cups
+          will be the winner.</li>
+        <li>Competition date will be fixed among these dates(May 18th or 19th) based on majority user selection during registration.</li>
+        <li>Wacans will pay the cost of butter milk for eligible participants during the competition.</li>
+        <li>Participants should drink atleast 4 cups of butter milk without much gap between each to be eligible.</li>
+        <li>In case of tie, timing will be considered.</li>
+        <li>Participants will be receiving intimation SMS before a week. Participants are not allowed without that SMS.</li>
+        <li>Those who are coming as group should have registered individually.</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="clearfix">&nbsp;</div>
+
+  <div class="footer">
+      <a href="https://play.google.com/store/apps/details?id=com.wacans" target="_blank"> <img class="img-responsive" height="60px" width="70px;" src="http://wacans.com/images/Wa-cans-animation.gif"></a>
+  </div>
+</div>

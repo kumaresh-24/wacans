@@ -1,0 +1,65 @@
+<div class="main-content">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+      <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <span class="navbar-brand d-flex flex-fill">
+      <a href="https://play.google.com/store/apps/details?id=com.wacans" target="_blank">  <img class="img-responsive" height="50px" width="60px;" src="http://wacans.com/images/Asset.png"></a>
+      </span>
+      <div class="navbar-collapse collapse" id="navbar">
+        <h4 class="navbar-nav justify-content-center d-flex flex-fill">
+          <b>Registered Users - Total {{ total }}</b>
+        </h4>
+      </div>
+      <div class="d-flex flex-fill"></div>
+    </nav>
+    <div class="clearfix">&nbsp;</div>
+
+
+    <div class="container-fluid">
+ <div class="row">
+        <div class="col-sm-3">
+            <label for="ava">Area name</label>
+            <select class="form-control" (change)="onchange($event.target.value)" id="area">
+              <option [value]="'default'">Select Area</option>
+              <option [value]="op" *ngFor="let op of areas">{{op}}</option>
+            </select>
+          </div>
+          <div class="col-sm-3 ml-auto">
+              <label for="ava">Select Date</label>
+              <select class="form-control" (change)="ondatechange($event.target.value)"  id="date">
+                <option [value]="'default'">Select Date</option>
+                <option [value]="'18-05-2018'">May 18</option>
+                <option [value]="'19-05-2018'">May 19</option>
+              </select>
+            </div>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+<table class="table table-striped" [mfData]="get_data"  #mf="mfDataTable" [mfRowsOnPage]="7">
+  <thead>
+    <tr>
+      <th>Sno</th>
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Available Date</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of mf.data">
+      <td>{{get_data.indexOf(item) + 1}}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.mobile }}</td>
+      <td>{{ item.available_on }}</td>
+      <td>{{ item.area }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+      <tr>
+        <td colspan="5">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,50]"></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot>
+</table>
+</div>
